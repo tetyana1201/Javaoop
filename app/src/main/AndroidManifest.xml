@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Java"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Java">
+        <activity
+            android:name=".PracticeQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnswersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminPanelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivityloops"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivityarrays"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivitystrings"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivityconditional"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivityboolean"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivitymethods"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivityoperators"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivitydata"
+            android:exported="false" />
+        <activity
+            android:name=".TheoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StringsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ArraysActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoopsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConditionalStatementsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BooleanOperationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MethodsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OperatorsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DataTypesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BasicConceptsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BasicConcepts"
+            android:exported="false" />
+        <activity
+            android:name=".JavaBase"
+            android:exported="false" />
+        <activity
+            android:name=".JavaBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".basic_concepts"
+            android:exported="false" />
+        <activity
+            android:name=".activity_basic_concepts"
+            android:exported="false" />
+        <activity android:name=".Register" />
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

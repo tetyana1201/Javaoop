@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "195874811977",
+    "project_id": "java-7140d",
+    "storage_bucket": "java-7140d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195874811977:android:acc9491111bffc1c6ecf98",
+        "android_client_info": {
+          "package_name": "com.example.java"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8O4vitWVT013wu0j2mAmQn1qoIVwQMeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
