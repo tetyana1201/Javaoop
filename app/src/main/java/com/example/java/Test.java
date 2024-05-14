@@ -65,7 +65,6 @@ public class Test {
         return correctAnswer;
     }
 
-    //
 
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
