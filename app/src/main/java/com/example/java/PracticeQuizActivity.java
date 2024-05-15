@@ -174,4 +174,5 @@ public class PracticeQuizActivity extends AppCompatActivity {
         // Збереження результатів тестування у базу даних
         resultsRef.push().setValue(result);
     }
+
 }
