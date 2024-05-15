@@ -13,15 +13,37 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <TextView
-        android:id="@+id/textView"
+    <!-- ScrollView для прокрутки -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="16dp"
-        android:gravity="start"
-        android:textColor="#FF444444"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <!-- Текст -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:gravity="start"
+                android:textColor="#FF444444"
+                android:textSize="16sp" />
+
+            <!-- Фото -->
+            <ImageView
+                android:id="@+id/photoImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView"
+                android:layout_marginTop="-130dp"
+                android:src="@drawable/basic"
+                android:layout_marginBottom="-123dp"/>
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

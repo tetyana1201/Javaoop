@@ -12,6 +12,7 @@ public class BasicConceptsActivity extends AppCompatActivity {
 
     private static final String TAG = "BasicConceptsActivity";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

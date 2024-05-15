@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +40,7 @@ public class PracticeQuizActivity extends AppCompatActivity {
     private Button nextButton;
     private List<String> selectedAnswersList = new ArrayList<>(); // Зберігає обрані відповіді для кожного питання
     private List<Integer> selectedQuestionIndexes = new ArrayList<>(); // Зберігає індекси питань, для яких було обрано відповідь
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,6 +142,9 @@ public class PracticeQuizActivity extends AppCompatActivity {
         // Обчислення відсотка правильних відповідей
         double scorePercentage = (double) correctAnswersCount / totalQuestions * 100;
 
+        // Збереження результатів у базі даних
+        saveTestResultsToFirebase(correctAnswersCount, scorePercentage);
+
         // Створення діалогового вікна з результатами
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Результати тестування");
@@ -158,5 +163,15 @@ public class PracticeQuizActivity extends AppCompatActivity {
     private void navigateToMainPage() {
         finish();
         startActivity(new Intent(this, BasicConceptsActivity.class));
+    }
+    private void saveTestResultsToFirebase(int correctAnswersCount, double scorePercentage) {
+        // Отримання посилання на базу даних Firebase для збереження результатів
+        DatabaseReference resultsRef = FirebaseDatabase.getInstance().getReference().child("results");
+
+        // Створення нового об'єкту Result для збереження результатів тестування
+        Result result = new Result(correctAnswersCount, scorePercentage);
+
+        // Збереження результатів тестування у базу даних
+        resultsRef.push().setValue(result);
     }
 }

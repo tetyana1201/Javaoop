@@ -6,6 +6,7 @@
     android:background="@drawable/aq"
     android:padding="16dp">
 
+
     <TextView
         android:id="@+id/questionTextView"
         android:layout_width="match_parent"
