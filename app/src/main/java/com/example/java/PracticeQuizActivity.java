@@ -1,6 +1,9 @@
 package com.example.java;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.database.ValueEventListener;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,15 +16,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.widget.Toolbar;
-
-import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,9 +37,8 @@ public class PracticeQuizActivity extends AppCompatActivity {
     private TextView questionTextView;
     private RadioGroup optionsRadioGroup;
     private Button nextButton;
-    private List<String> selectedAnswersList = new ArrayList<>(); // Зберігає обрані відповіді для кожного питання
-    private List<Integer> selectedQuestionIndexes = new ArrayList<>(); // Зберігає індекси питань, для яких було обрано відповідь
-
+    private List<String> selectedAnswersList = new ArrayList<>();
+    private List<Integer> selectedQuestionIndexes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +64,8 @@ public class PracticeQuizActivity extends AppCompatActivity {
 
                 RadioButton selectedOption = findViewById(selectedOptionId);
                 String selectedAnswer = selectedOption.getText().toString();
-                selectedAnswersList.add(selectedAnswer); // Додано обрану відповідь до списку
-                selectedQuestionIndexes.add(currentQuestionIndex); // Зберігаємо індекс поточного питання
+                selectedAnswersList.add(selectedAnswer);
+                selectedQuestionIndexes.add(currentQuestionIndex);
 
                 String correctAnswer = testList.get(currentQuestionIndex).getCorrectAnswer();
                 if (selectedAnswer.equals(correctAnswer)) {
@@ -83,9 +81,9 @@ public class PracticeQuizActivity extends AppCompatActivity {
     private void loadTestsFromFirebase() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
                 testList = new ArrayList<>();
-                for (DataSnapshot testSnapshot : dataSnapshot.getChildren()) {
+                for (com.google.firebase.database.DataSnapshot testSnapshot : dataSnapshot.getChildren()) {
                     Test test = testSnapshot.getValue(Test.class);
                     testList.add(test);
                 }
@@ -129,7 +127,6 @@ public class PracticeQuizActivity extends AppCompatActivity {
         int correctAnswersCount = 0;
         int totalQuestions = testList.size();
 
-        // Перебір тестів для підрахунку правильних відповідей
         for (int i = 0; i < selectedQuestionIndexes.size(); i++) {
             int questionIndex = selectedQuestionIndexes.get(i);
             String selectedAnswer = selectedAnswersList.get(i);
@@ -139,13 +136,10 @@ public class PracticeQuizActivity extends AppCompatActivity {
             }
         }
 
-        // Обчислення відсотка правильних відповідей
         double scorePercentage = (double) correctAnswersCount / totalQuestions * 100;
 
-        // Збереження результатів у базі даних
         saveTestResultsToFirebase(correctAnswersCount, scorePercentage);
 
-        // Створення діалогового вікна з результатами
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Результати тестування");
         builder.setMessage("Правильних відповідей: " + correctAnswersCount + "/" + totalQuestions +
@@ -154,25 +148,41 @@ public class PracticeQuizActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                updateQuizStatusForCurrentUser();
                 navigateToMainPage();
             }
         });
         builder.show();
     }
 
+    private void updateQuizStatusForCurrentUser() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("results").child(userId);
+            userRef.child("quizStatus").setValue("пройдено", new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(@NonNull DatabaseError error, @NonNull DatabaseReference ref) {
+                    if (error == null) {
+                        Log.d(TAG, "Статус тестування оновлено успішно");
+                    } else {
+                        Log.e(TAG, "Помилка при оновленні статусу тестування: " + error.getMessage());
+                    }
+                }
+            });
+        } else {
+            Log.e(TAG, "Користувач не автентифікований");
+        }
+    }
+
     private void navigateToMainPage() {
         finish();
         startActivity(new Intent(this, BasicConceptsActivity.class));
     }
+
     private void saveTestResultsToFirebase(int correctAnswersCount, double scorePercentage) {
-        // Отримання посилання на базу даних Firebase для збереження результатів
         DatabaseReference resultsRef = FirebaseDatabase.getInstance().getReference().child("results");
-
-        // Створення нового об'єкту Result для збереження результатів тестування
         Result result = new Result(correctAnswersCount, scorePercentage);
-
-        // Збереження результатів тестування у базу даних
         resultsRef.push().setValue(result);
     }
-
 }

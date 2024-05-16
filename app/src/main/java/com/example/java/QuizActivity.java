@@ -2,6 +2,7 @@ package com.example.java;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -19,6 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button addButton;
 
     private DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,23 @@ public class QuizActivity extends AppCompatActivity {
         correctAnswerEditText = findViewById(R.id.correctAnswerEditText);
         addButton = findViewById(R.id.addButton);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("tests");
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            String currentUserID = user.getUid();
+            Log.d("CurrentUserID", currentUserID);
+            if (currentUserID.equals("Nd2M1lgHunVWFtq2Z7HFaqLdAzR2")) {
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("tests");
+                addButton.setVisibility(View.VISIBLE);
+            } else {
+                Toast.makeText(QuizActivity.this, "Ви не маєте прав доступу", Toast.LENGTH_SHORT).show();
+                addButton.setVisibility(View.GONE);
+            }
+        } else {
+            Toast.makeText(QuizActivity.this, "Поточний користувач не знайдений", Toast.LENGTH_SHORT).show();
+            addButton.setVisibility(View.GONE);
+        }
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override

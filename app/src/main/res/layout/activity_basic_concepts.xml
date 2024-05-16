@@ -7,7 +7,16 @@
     android:background="@drawable/pho"
     tools:context=".BasicConceptsActivity">
 
-
+    <ImageView
+        android:id="@+id/checkmarkImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/so"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/theoryButton"

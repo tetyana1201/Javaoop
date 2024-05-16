@@ -20,18 +20,18 @@
         android:text="Вхід тут"/>
 
     <EditText
-        android:layout_marginTop="20dp"
-        android:id="@+id/phone"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:inputType="phone"
-        android:hint="Номер телефону"
+        android:inputType="textEmailAddress"
+        android:hint="Електронна адреса"
         android:maxLines="1"
         android:paddingStart="20dp"
         android:paddingEnd="0dp"
         android:minHeight="48dp" />
+
 
     <EditText
         android:id="@+id/password"

@@ -24,6 +24,7 @@ public class BasicConceptsActivity extends AppCompatActivity {
         Button quizButton = findViewById(R.id.quizButton);
         Button practiceButton = findViewById(R.id.practiceButton);
 
+
         theoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

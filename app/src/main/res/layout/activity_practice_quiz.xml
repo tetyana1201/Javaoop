@@ -6,7 +6,12 @@
     android:background="@drawable/aq"
     android:padding="16dp">
 
-
+    <ImageView
+        android:id="@+id/checkmarkImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/so"
+        android:visibility="gone" />
     <TextView
         android:id="@+id/questionTextView"
         android:layout_width="match_parent"

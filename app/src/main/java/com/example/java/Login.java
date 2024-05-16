@@ -8,25 +8,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://java-7140d-default-rtdb.firebaseio.com/");
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final EditText phone = findViewById(R.id.phone);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        final EditText email = findViewById(R.id.email);
+
         final EditText password = findViewById(R.id.password);
         final Button loginBtn = findViewById(R.id.loginBtn);
         final TextView registerNowBtn = findViewById(R.id.registerNowBtn);
@@ -34,47 +36,26 @@ public class Login extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                final String phoneTxt = phone.getText().toString();
+                final String phoneTxt = email.getText().toString();
                 final String passwordTxt = password.getText().toString();
 
-                if(phoneTxt.isEmpty() || passwordTxt.isEmpty()) {
+                if (phoneTxt.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(Login.this, "Будь ласка, введіть свій номер телефону або пароль", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                            // check if mobile/phone is exist in firebase database
-                            if (snapshot.hasChild(phoneTxt)){
-
-                                // mobile is exist in firebase database
-                                // now get password of user from firebase data and match it with user entered password
-                                final String getPassword = snapshot.child(phoneTxt).child("password").getValue(String.class);
-
-                                if (getPassword.equals(passwordTxt)){
-                                    Toast.makeText(Login.this, "Успішний вхід", Toast.LENGTH_SHORT).show();
-
-                                    // open MainActivity on success
-                                    startActivity(new Intent(Login.this, MainActivity.class));
-                                    finish();
+                } else {
+                    mAuth.signInWithEmailAndPassword(phoneTxt, passwordTxt)
+                            .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Успішний вхід, відкриваємо MainActivity
+                                        startActivity(new Intent(Login.this, MainActivity.class));
+                                        finish();
+                                    } else {
+                                        // Помилка входу
+                                        Toast.makeText(Login.this, "Помилка входу: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                                else {
-                                    Toast.makeText(Login.this, "Неправильний пароль", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                            else {
-                                Toast.makeText(Login.this, "Неправильний номер телефону", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
+                            });
                 }
             }
         });
@@ -82,7 +63,7 @@ public class Login extends AppCompatActivity {
         registerNowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //open Register activity
+                // Відкриваємо активність реєстрації
                 startActivity(new Intent(Login.this, Register.class));
             }
         });
