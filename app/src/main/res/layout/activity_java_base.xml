@@ -8,7 +8,15 @@
     tools:context=".JavaBase">
 
     <!-- Your interface layout for the "Java Base" activity here -->
-
+    <ImageView
+        android:id="@+id/logoutImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="9dp"/>
     <Button
         android:id="@+id/basicConceptsButton"
         android:layout_width="wrap_content"

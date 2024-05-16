@@ -3,7 +3,10 @@ package com.example.java;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import android.widget.ImageView;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,11 +23,23 @@ public class MainActivity extends AppCompatActivity {
                 openJavaBase();
             }
         });
+
+        ImageView logoutImageView = findViewById(R.id.logoutImageView);
+        logoutImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLoginActivity();
+            }
+        });
     }
 
     public void openJavaBase() {
         Intent intent = new Intent(this, JavaBase.class);
         startActivity(intent);
     }
-}
 
+    public void openLoginActivity() {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
+}
