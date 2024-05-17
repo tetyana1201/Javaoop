@@ -50,6 +50,8 @@ public class Login extends AppCompatActivity {
                                         // Успішний вхід, відкриваємо MainActivity
                                         startActivity(new Intent(Login.this, MainActivity.class));
                                         finish();
+                                        // Сповіщення про успішний вхід
+                                        Toast.makeText(Login.this, "Успішний вхід!", Toast.LENGTH_SHORT).show();
                                     } else {
                                         // Помилка входу
                                         Toast.makeText(Login.this, "Помилка входу: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

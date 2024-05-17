@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Java">
         <activity
+            android:name=".OperatorsQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DataPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DataQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DataQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".PracticeData"
+            android:exported="false" />
+        <activity
             android:name=".PracticeQuizActivity"
             android:exported="false" />
         <activity
