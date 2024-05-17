@@ -177,7 +177,6 @@ public class PracticeQuizActivity extends AppCompatActivity {
 
     private void navigateToMainPage() {
         finish();
-        startActivity(new Intent(this, BasicConceptsActivity.class));
     }
 
     private void saveTestResultsToFirebase(int correctAnswersCount, double scorePercentage) {

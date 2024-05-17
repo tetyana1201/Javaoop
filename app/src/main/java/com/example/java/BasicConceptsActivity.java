@@ -105,10 +105,10 @@ public class BasicConceptsActivity extends AppCompatActivity {
     }
 
     private void showCheckmark() {
-        checkmarkImageView.setVisibility(View.VISIBLE); // Змінити видимість на visible
+        checkmarkImageView.setVisibility(View.VISIBLE);
     }
 
     private void hideCheckmark() {
-        checkmarkImageView.setVisibility(View.GONE); // Змінити видимість на gone
+        checkmarkImageView.setVisibility(View.GONE);
     }
 }

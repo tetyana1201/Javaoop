@@ -22,7 +22,7 @@ public class TheoryActivitydata extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         // Встановлюємо текст на Toolbar
-        toolbar.setTitle("Основні поняття");
+        toolbar.setTitle("Типи даних");
 
         TextView textView = findViewById(R.id.textView);
         displayTheory(textView);

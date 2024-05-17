@@ -87,7 +87,5 @@ public class CondionalQuizActivity extends AppCompatActivity {
     // Метод для перенаправлення на головну сторінку (BasicConceptsActivity)
     private void navigateToMainPage() {
         finish(); // Закрити поточну активність (QuizActivity)
-        // Створити інтент для переходу на BasicConceptsActivity
-        startActivity(new Intent(this, ConditionalStatementsActivity.class));
     }
 }

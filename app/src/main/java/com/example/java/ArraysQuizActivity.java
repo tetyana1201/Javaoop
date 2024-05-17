@@ -88,6 +88,5 @@ public class ArraysQuizActivity extends AppCompatActivity {
     private void navigateToMainPage() {
         finish(); // Закрити поточну активність (QuizActivity)
         // Створити інтент для переходу на BasicConceptsActivity
-        startActivity(new Intent(this, ArraysActivity.class));
     }
 }
