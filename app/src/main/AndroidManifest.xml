@@ -12,6 +12,48 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Java">
         <activity
+            android:name=".CondionalQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CondionalPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BooleanQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BooleanPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ArraysQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ArraysPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StringsQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StringsPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MethodsQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MethodsPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoopsPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoopsQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OperatorsPracticeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpQuizActivity"
+            android:exported="false" />
+        <activity
             android:name=".OperatorsQuizActivity"
             android:exported="false" />
         <activity

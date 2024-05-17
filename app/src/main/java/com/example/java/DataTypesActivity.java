@@ -21,7 +21,6 @@ public class DataTypesActivity extends AppCompatActivity {
 
         // Uncomment the following line for logging
         // Log.d(TAG, "onCreate: Activity created");
-
         Button quizButton = findViewById(R.id.quizButton);
         Button practiceButton = findViewById(R.id.practiceButton);
 
