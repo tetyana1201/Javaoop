@@ -4,7 +4,6 @@
     android:background="@drawable/aq"
     android:layout_height="match_parent">
 
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -13,7 +12,6 @@
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <!-- ScrollView для прокрутки -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Текст -->
             <TextView
                 android:id="@+id/textoperatorsView"
                 android:layout_width="match_parent"

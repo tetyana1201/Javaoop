@@ -2,7 +2,6 @@ package com.example.java;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spannable;
@@ -19,10 +18,7 @@ public class TheoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theory);
 
-        // Отримуємо посилання на Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-
-        // Встановлюємо текст на Toolbar
         toolbar.setTitle("Основні поняття");
 
         TextView textView = findViewById(R.id.textView);
@@ -57,7 +53,8 @@ public class TheoryActivity extends AppCompatActivity {
                 "Зазвичай, оголошення та ініціалізація змінної відбуваються водночас:\n" +
                 "int number = 5;\n" +
                 "Коментарі\n" +
-                "При написанні програми може бути корисним залишати коментарі до коду, який ти пишеш. Коментарі використовуються для того, щоб через деякий час, коли доведеться покращувати або доповнювати наявний код, було простіше розібратись, що відбувається.\n" +
+                "При написанні програми може бути корисним залишати коментарі до коду, який ти пишеш. Коментарі використовуються для того, щоб через деякий час, коли доведеться" +
+                "покращувати або доповнювати наявний код, було простіше розібратись, що відбувається.\n" +
                 "Для того, щоб компʼютер проігнорував певні символи та не пробував їх опрацьовувати, тобі потрібно явно вказати про це за допомогою спецсимволів коментування: // , /*\n" +
                 "та */. \n" +
                 "Є два види коментарів: \n" +
@@ -76,12 +73,11 @@ public class TheoryActivity extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theoryText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Змінні", "Змінна", "int a = 5;", "type name = value;", "System.out. println (name);", "Зверни увагу","String name = \"Bob\";", "boolean isMarried = true;", "Важливо", "Оголошення та ініціалізація змінної", "type variableName", "Коментарі", "Однорядкові", "Багаторядкові","Відображення інформації в консолі","Повідомлення","// Це однорядковий коментар","/* Це багаторядковий коментар.", "Java його проігнорує */"};
-        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW}; //колір фону
-        boolean[] bold = {true, false, false, false, false, true, false, false, true, true, false, true, true, true, true, false, false, false, false}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA};
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW};
+        boolean[] bold = {true, false, false, false, false, true, false, false, true, true, false, true, true, true, true, false, false, false, false};
+        boolean[] italic = {false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theoryText.indexOf(words[i]);
@@ -99,7 +95,5 @@ public class TheoryActivity extends AppCompatActivity {
         }
 
         textView.setText(spannableString);
-
-
     }
 }

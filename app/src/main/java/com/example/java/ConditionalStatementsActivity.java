@@ -1,14 +1,13 @@
 package com.example.java;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -17,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class ConditionalStatementsActivity extends AppCompatActivity {
+
     private static final String TAG = "ConditionalStatementsActivity";
     private ImageView checkmarkconImageView;
 
@@ -60,12 +60,12 @@ public class ConditionalStatementsActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openConditionalQuizActivity() {
-        Intent intent = new Intent(this, CondionalQuizActivity.class); // Corrected class name
+        Intent intent = new Intent(this, CondionalQuizActivity.class);
         startActivity(intent);
     }
 
     private void openConditionalPracticeActivity() {
-        Intent intent = new Intent(this, CondionalPracticeActivity.class); // Corrected class name
+        Intent intent = new Intent(this, CondionalPracticeActivity.class);
         startActivity(intent);
     }
 

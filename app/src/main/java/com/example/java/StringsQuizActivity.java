@@ -1,26 +1,23 @@
 package com.example.java;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.Toast;
-
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
-
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class StringsQuizActivity extends AppCompatActivity {
+
     private EditText questionEditText, option1EditText, option2EditText, option3EditText, option4EditText, correctAnswerEditText;
     private Button addButton;
-
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
 
@@ -67,13 +64,11 @@ public class StringsQuizActivity extends AppCompatActivity {
 
                 Test test = new Test(question, option1, option2, option3, option4, correctAnswer);
 
-                // Додаємо тест до Firebase
                 databaseReference.push().setValue(test, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@NonNull DatabaseError error, @NonNull DatabaseReference ref) {
                         if (error == null) {
                             Toast.makeText(StringsQuizActivity.this, "Тест успішно додано", Toast.LENGTH_SHORT).show();
-                            // Перенаправлення на головну сторінку після успішного додавання
                             navigateToMainPage();
                         } else {
                             Toast.makeText(StringsQuizActivity.this, "Не вдалося додати тест", Toast.LENGTH_SHORT).show();
@@ -84,8 +79,8 @@ public class StringsQuizActivity extends AppCompatActivity {
         });
     }
 
-    // Метод для перенаправлення на головну сторінку (BasicConceptsActivity)
     private void navigateToMainPage() {
-        finish(); // Закрити поточну активність (QuizActivity)
+
+        finish();
     }
 }

@@ -2,14 +2,12 @@ package com.example.java;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -51,11 +49,9 @@ public class Register extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        // Користувач успішно зареєстрований
                                         Toast.makeText(Register.this, "Користувач успішно зареєстрований", Toast.LENGTH_SHORT).show();
                                         finish();
                                     } else {
-                                        // Виникла помилка при реєстрації користувача
                                         String errorMessage = task.getException().getMessage();
                                         String translatedMessage = translateFirebaseErrorMessage(errorMessage);
                                         Toast.makeText(Register.this, translatedMessage, Toast.LENGTH_SHORT).show();

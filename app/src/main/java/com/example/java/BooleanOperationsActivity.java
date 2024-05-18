@@ -1,14 +1,13 @@
 package com.example.java;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -17,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class BooleanOperationsActivity extends AppCompatActivity {
+
     private static final String TAG = "BooleanOperationsActivity";
     private ImageView checkmarkbooleanImageView;
 
@@ -31,6 +31,7 @@ public class BooleanOperationsActivity extends AppCompatActivity {
         Button practiceButton = findViewById(R.id.practiceButton);
 
         checkQuizStatus();
+
         Button theorybooleanButton = findViewById(R.id.theorybooleanButton);
         theorybooleanButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,7 @@ public class BooleanOperationsActivity extends AppCompatActivity {
                 openTheoryActivityboolean();
             }
         });
+
         quizButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,15 +61,17 @@ public class BooleanOperationsActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TheoryActivityboolean.class);
         startActivity(intent);
     }
+
     private void openBooleanQuizActivity() {
-        Intent intent = new Intent(this, BooleanQuizActivity.class); // Corrected class name
+        Intent intent = new Intent(this, BooleanQuizActivity.class);
         startActivity(intent);
     }
 
     private void openBooleanPracticeActivity() {
-        Intent intent = new Intent(this, BooleanPracticeActivity.class); // Corrected class name
+        Intent intent = new Intent(this, BooleanPracticeActivity.class);
         startActivity(intent);
     }
+
     private void checkQuizStatus() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
@@ -95,10 +99,12 @@ public class BooleanOperationsActivity extends AppCompatActivity {
     }
 
     private void showCheckmark() {
+
         checkmarkbooleanImageView.setVisibility(View.VISIBLE);
     }
 
     private void hideCheckmark() {
+
         checkmarkbooleanImageView.setVisibility(View.GONE);
     }
 }

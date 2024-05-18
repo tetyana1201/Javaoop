@@ -4,9 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.ValueEventListener;
-
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,13 +13,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,11 +25,9 @@ import java.util.List;
 public class PracticeQuizActivity extends AppCompatActivity {
 
     private static final String TAG = "PracticeQuizActivity";
-
     private DatabaseReference databaseReference;
     private List<Test> testList;
     private int currentQuestionIndex = 0;
-
     private TextView questionTextView;
     private RadioGroup optionsRadioGroup;
     private Button nextButton;
@@ -176,6 +170,7 @@ public class PracticeQuizActivity extends AppCompatActivity {
     }
 
     private void navigateToMainPage() {
+
         finish();
     }
 

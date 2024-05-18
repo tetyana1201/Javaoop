@@ -2,14 +2,12 @@ package com.example.java;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MethodsActivity extends AppCompatActivity {
+
     private static final String TAG = "MethodsActivity";
     private ImageView checkmarkmethodsImageView;
 
@@ -56,18 +55,17 @@ public class MethodsActivity extends AppCompatActivity {
         });
     }
 
-    // Метод для відкриття іншої активності
     private void openTheoryActivitymethods() {
         Intent intent = new Intent(this, TheoryActivitymethods.class);
         startActivity(intent);
     }
     private void openMethodsQuizActivity() {
-        Intent intent = new Intent(this, MethodsQuizActivity.class); // Corrected class name
+        Intent intent = new Intent(this, MethodsQuizActivity.class);
         startActivity(intent);
     }
 
     private void openMethodsPracticeActivity() {
-        Intent intent = new Intent(this, MethodsPracticeActivity.class); // Corrected class name
+        Intent intent = new Intent(this, MethodsPracticeActivity.class);
         startActivity(intent);
     }
 
@@ -98,10 +96,12 @@ public class MethodsActivity extends AppCompatActivity {
     }
 
     private void showCheckmark() {
+
         checkmarkmethodsImageView.setVisibility(View.VISIBLE);
     }
 
     private void hideCheckmark() {
+
         checkmarkmethodsImageView.setVisibility(View.GONE);
     }
 }

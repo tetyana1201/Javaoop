@@ -1,14 +1,13 @@
 package com.example.java;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -17,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DataTypesActivity extends AppCompatActivity {
+
     private static final String TAG = "DataTypesActivity";
     private ImageView checkmarkdataImageView;
 
@@ -64,12 +64,12 @@ public class DataTypesActivity extends AppCompatActivity {
     }
 
     private void openDataQuizActivity() {
-        Intent intent = new Intent(this, DataQuizActivity.class); // Corrected class name
+        Intent intent = new Intent(this, DataQuizActivity.class);
         startActivity(intent);
     }
 
     private void openDataPracticeActivity() {
-        Intent intent = new Intent(this, DataPracticeActivity.class); // Corrected class name
+        Intent intent = new Intent(this, DataPracticeActivity.class);
         startActivity(intent);
     }
 

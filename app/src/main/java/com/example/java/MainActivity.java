@@ -1,7 +1,6 @@
 package com.example.java;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -10,9 +9,7 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-
 import android.widget.ImageView;
 import android.content.Intent;
 import android.widget.TextView;
@@ -31,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         javaBaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openJavaBase();
             }
         });
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         logoutImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openLoginActivity();
             }
         });
@@ -54,12 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theoryText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Java", "Перейти до вивчення:"};
-        int[] textColors = {Color.DKGRAY, Color.BLACK}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
-        boolean[] bold = {true, false}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {false, true}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.BLACK};
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT};
+        boolean[] bold = {true, false};
+        boolean[] italic = {false, true};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theoryText.indexOf(words[i]);
@@ -77,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         textView.setText(spannableString);
-
-
     }
 
     public void openJavaBase() {

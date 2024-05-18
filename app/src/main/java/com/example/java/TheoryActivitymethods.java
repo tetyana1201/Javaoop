@@ -2,7 +2,6 @@ package com.example.java;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -20,13 +19,9 @@ public class TheoryActivitymethods extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theory_activitymethods);
 
-        // Отримуємо посилання на Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-
-        // Встановлюємо текст на Toolbar
         toolbar.setTitle("Методи");
 
-        // Отримуємо посилання на TextView
         TextView textmethodsView = findViewById(R.id.textmethodsView);
         displayTheory(textmethodsView);
     }
@@ -40,7 +35,8 @@ public class TheoryActivitymethods extends AppCompatActivity {
                 "Використання методів вкрай важливе в програмуванні, адже вони забезпечують повторне використання коду: ти напишеш метод один раз, а використовувати ти можеш\n" +
                 "скільки завгодно разів. Крім того, ти можеш розділити обʼємну задачу на декілька простих, кожну з яких буде виконувати окремий метод." +"\n" +
                 "Тип результату" + "\n" +
-                "Важливо розуміти, що є результатом роботи методу (іншими словами, що твій метод поверне в результаті виконання) — рядок, ціле чи дробове число. Тому при оголошенні методу ми повинні явно вказати, якого типу буде значення, що повертається внаслідок роботи методу.\n" +
+                "Важливо розуміти, що є результатом роботи методу (іншими словами, що твій метод поверне в результаті виконання) — рядок, ціле чи дробове число. Тому при оголошенні методу ми" +
+                "повинні явно вказати, якого типу буде значення, що повертається внаслідок роботи методу.\n" +
                 "Назва методу" + "\n" +
                 "Методів у твоїй програмі може бути багато, тому Java має розуміти, який саме обрати в тому, чи іншому випадку. Для цього використовується назва методу.\n" +
                 "Тіло методу" + "\n" +
@@ -54,18 +50,17 @@ public class TheoryActivitymethods extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theorymethodsText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Методи", "Що таке метод", "Тип результату", "Назва методу", "Тіло методу", "Виклик методу", "Ключове слово return y void методах"};
-        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
-        boolean[] bold = {true, true, true, true, true, true, true}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {true, true, true, true, true, true, true}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY};
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT};
+        boolean[] bold = {true, true, true, true, true, true, true};
+        boolean[] italic = {true, true, true, true, true, true, true};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theorymethodsText.indexOf(words[i]);
             int endIndex = startIndex + words[i].length();
 
-            if (startIndex >= 0) { // Перевірка, чи знайдено слово в рядку
+            if (startIndex >= 0) {
                 if (bold[i]) {
                     spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }

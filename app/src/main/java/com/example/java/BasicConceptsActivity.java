@@ -2,14 +2,12 @@ package com.example.java;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 public class BasicConceptsActivity extends AppCompatActivity {
 
     private static final String TAG = "BasicConceptsActivity";
-
     private ImageView checkmarkImageView;
 
     @Override
@@ -28,20 +25,20 @@ public class BasicConceptsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic_concepts);
 
-        checkmarkImageView = findViewById(R.id.checkmarkImageView); // Ініціалізовано зображення галочки
+        checkmarkImageView = findViewById(R.id.checkmarkImageView);
 
-        Log.d(TAG, "onCreate: Activity created"); // Додайте лог для відстеження створення активності
+        Log.d(TAG, "onCreate: Activity created");
 
         Button theoryButton = findViewById(R.id.theoryButton);
         Button quizButton = findViewById(R.id.quizButton);
         Button practiceButton = findViewById(R.id.practiceButton);
 
-        checkQuizStatus(); // Перевірити статус тестування при запуску активності
+        checkQuizStatus();
 
         theoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: Theory button clicked"); // Додайте лог для відстеження натискання кнопки "Теорія"
+                Log.d(TAG, "onClick: Theory button clicked");
                 openTheoryActivity();
             }
         });
@@ -49,7 +46,7 @@ public class BasicConceptsActivity extends AppCompatActivity {
         quizButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: Quiz button clicked"); // Додайте лог для відстеження натискання кнопки "Quiz"
+                Log.d(TAG, "onClick: Quiz button clicked");
                 openQuizActivity();
             }
         });
@@ -57,7 +54,7 @@ public class BasicConceptsActivity extends AppCompatActivity {
         practiceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: Practice button clicked"); // Додайте лог для відстеження натискання кнопки "Практика"
+                Log.d(TAG, "onClick: Practice button clicked");
                 openPracticeQuizActivity();
             }
         });

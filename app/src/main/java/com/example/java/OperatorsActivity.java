@@ -2,14 +2,12 @@ package com.example.java;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class OperatorsActivity extends AppCompatActivity {
+
     private static final String TAG = "OperatorsActivity";
     private ImageView checkmarkoperatorsImageView;
 
@@ -33,8 +32,7 @@ public class OperatorsActivity extends AppCompatActivity {
         Button quizButton = findViewById(R.id.quizButton);
         Button practiceButton = findViewById(R.id.practiceButton);
 
-        // Uncomment the following line if checkQuizStatus method is necessary
-        // checkQuizStatus();
+        checkQuizStatus();
         theoryoperatorsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,10 +97,12 @@ public class OperatorsActivity extends AppCompatActivity {
     }
 
     private void showCheckmark() {
+
         checkmarkoperatorsImageView.setVisibility(View.VISIBLE);
     }
 
     private void hideCheckmark() {
+
         checkmarkoperatorsImageView.setVisibility(View.GONE);
     }
 }

@@ -1,17 +1,16 @@
 package com.example.java;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.appcompat.widget.Toolbar;
-
-        import android.graphics.Color;
-        import android.os.Bundle;
-        import android.text.Spannable;
-        import android.text.SpannableString;
-        import android.text.style.BackgroundColorSpan;
-        import android.text.style.ForegroundColorSpan;
-        import android.text.style.StyleSpan;
-        import android.util.Log;
-        import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.util.Log;
+import android.widget.TextView;
 
 public class TheoryActivityloops extends AppCompatActivity {
 
@@ -20,13 +19,9 @@ public class TheoryActivityloops extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theory_activityloops);
 
-        // Отримуємо посилання на Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-
-        // Встановлюємо текст на Toolbar
         toolbar.setTitle("Цикли");
 
-        // Отримуємо посилання на TextView
         TextView textloopsView = findViewById(R.id.textloopsView);
         displayTheory(textloopsView);
     }
@@ -51,18 +46,17 @@ public class TheoryActivityloops extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theoryloopsText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Цикли", "Цикл for", "Цикл while", "Цикл do while"};
-        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
-        boolean[] bold = {true, true, true, true}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {true, true, true, true}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY};
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT};
+        boolean[] bold = {true, true, true, true};
+        boolean[] italic = {true, true, true, true};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theoryloopsText.indexOf(words[i]);
             int endIndex = startIndex + words[i].length();
 
-            if (startIndex >= 0) { // Перевірка, чи знайдено слово в рядку
+            if (startIndex >= 0) {
                 if (bold[i]) {
                     spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }

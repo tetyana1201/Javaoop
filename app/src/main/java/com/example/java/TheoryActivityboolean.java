@@ -1,17 +1,16 @@
 package com.example.java;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.appcompat.widget.Toolbar;
-
-        import android.graphics.Color;
-        import android.os.Bundle;
-        import android.text.Spannable;
-        import android.text.SpannableString;
-        import android.text.style.BackgroundColorSpan;
-        import android.text.style.ForegroundColorSpan;
-        import android.text.style.StyleSpan;
-        import android.util.Log;
-        import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.util.Log;
+import android.widget.TextView;
 
 public class TheoryActivityboolean extends AppCompatActivity {
 
@@ -19,10 +18,8 @@ public class TheoryActivityboolean extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theory_activityboolean);
-        // Отримуємо посилання на Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        // Встановлюємо текст на Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Булеві операції");
 
         TextView textbooleanView = findViewById(R.id.textbooleanView);
@@ -50,18 +47,17 @@ public class TheoryActivityboolean extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theorybooleanText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Оператори порівняння", "true", "false", "==", "!=", ">","<", "Логічні оператори", "AND", "OR", "NOT"};
-        int[] textColors = {Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW}; //колір фону
-        boolean[] bold = {true, false, false, false, false, false, false, true, false, false, false}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {false, true, true, true, true, true, true, false, true, true, true}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA};
+        int[] bgColors = {Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW};
+        boolean[] bold = {true, false, false, false, false, false, false, true, false, false, false};
+        boolean[] italic = {false, true, true, true, true, true, true, false, true, true, true};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theorybooleanText.indexOf(words[i]);
             int endIndex = startIndex + words[i].length();
 
-            if (startIndex >= 0) { // Перевірка, чи знайдено слово в рядку
+            if (startIndex >= 0) {
                 if (bold[i]) {
                     spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }

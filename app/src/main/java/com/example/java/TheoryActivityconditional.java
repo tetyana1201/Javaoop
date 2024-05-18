@@ -1,17 +1,16 @@
 package com.example.java;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.appcompat.widget.Toolbar;
-
-        import android.graphics.Color;
-        import android.os.Bundle;
-        import android.text.Spannable;
-        import android.text.SpannableString;
-        import android.text.style.BackgroundColorSpan;
-        import android.text.style.ForegroundColorSpan;
-        import android.text.style.StyleSpan;
-        import android.util.Log;
-        import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.util.Log;
+import android.widget.TextView;
 
 public class TheoryActivityconditional extends AppCompatActivity {
 
@@ -20,20 +19,17 @@ public class TheoryActivityconditional extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theory_activityconditional);
 
-        // Отримуємо посилання на Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
-
-        // Встановлюємо текст на Toolbar
         toolbar.setTitle("Умовні оператори");
 
-        // Отримуємо посилання на TextView
         TextView textconditionalView = findViewById(R.id.textconditionalView);
         displayTheory(textconditionalView);
     }
 
     private void displayTheory(TextView textconditionalView) {
         String theoryconditionalText = "Умовні оператори" + "\n" +
-                "Як ти вже знаєш, команди в програмі виконуються послідовно (згори вниз). Але іноді треба, щоби деякі команди виконувалися тільки за певною умовою: істинною (true ) або не істинною (false ). Для цього використовуються умовні оператори." + "\n" +
+                "Як ти вже знаєш, команди в програмі виконуються послідовно (згори вниз). Але іноді треба, щоби деякі команди виконувалися тільки за певною умовою: істинною" +
+                "(true) або не істинною (false ). Для цього використовуються умовні оператори." + "\n" +
                 "Оператор if" +"\n" +
                 "Якщо ти хочеш перевірити лише одну умову, використовуй оператор if." + "\n" +
                 "Якщо тобі потрібно перевірити декілька умов, можна використати оператор іf всередині іншого if.\n" +
@@ -49,18 +45,17 @@ public class TheoryActivityconditional extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theoryconditionalText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Умовні оператори", "Оператор if", "Оператор else", "Оператор else if", "Ключове слово return всередині if", "Умовний (тернарний) оператор"};
-        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
-        boolean[] bold = {true, true, true, true, true, true}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {true, true, true, true, true, true}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY};
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT};
+        boolean[] bold = {true, true, true, true, true, true};
+        boolean[] italic = {true, true, true, true, true, true};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theoryconditionalText.indexOf(words[i]);
             int endIndex = startIndex + words[i].length();
 
-            if (startIndex >= 0) { // Перевірка, чи знайдено слово в рядку
+            if (startIndex >= 0) {
                 if (bold[i]) {
                     spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }

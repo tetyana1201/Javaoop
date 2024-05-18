@@ -1,10 +1,10 @@
 package com.example.java;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class JavaBase extends AppCompatActivity {
@@ -86,6 +86,7 @@ public class JavaBase extends AppCompatActivity {
                 openStringsActivity();
             }
         });
+
         ImageView logoutImageView = findViewById(R.id.logoutImageView);
         logoutImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +141,7 @@ public class JavaBase extends AppCompatActivity {
         Intent intent = new Intent(this, StringsActivity.class);
         startActivity(intent);
     }
+
     public void openLoginActivity() {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);

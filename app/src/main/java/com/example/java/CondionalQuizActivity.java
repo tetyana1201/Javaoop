@@ -1,26 +1,23 @@
 package com.example.java;
 
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.Toast;
-
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
-
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CondionalQuizActivity extends AppCompatActivity {
+
     private EditText questionEditText, option1EditText, option2EditText, option3EditText, option4EditText, correctAnswerEditText;
     private Button addButton;
-
     private DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
 
@@ -84,8 +81,7 @@ public class CondionalQuizActivity extends AppCompatActivity {
         });
     }
 
-    // Метод для перенаправлення на головну сторінку (BasicConceptsActivity)
     private void navigateToMainPage() {
-        finish(); // Закрити поточну активність (QuizActivity)
+        finish();
     }
 }

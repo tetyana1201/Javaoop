@@ -2,7 +2,6 @@ package com.example.java;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -19,10 +18,8 @@ public class TheoryActivitydata extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theory_activitydata);
-        // Отримуємо посилання на Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
 
-        // Встановлюємо текст на Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Типи даних");
 
         TextView textdataView = findViewById(R.id.textdataView);
@@ -51,18 +48,17 @@ public class TheoryActivitydata extends AppCompatActivity {
 
         SpannableString spannableString = new SpannableString(theorydataText);
 
-        // Кольори тексту та фону, жирний та курсив
         String[] words = {"Типи даних", "Примітивні", "-5;", "110", "(integer)", "(floating-point)","(character)", "(boolean)", "Непримітивні", "Особливості присвоєння значень змінним"};
-        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.DKGRAY}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
-        boolean[] bold = {true, true, false, false, false, false, false, false, true, true}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {false, false, true, true, true, true, true, true, false, false}; // курсив
+        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.DKGRAY};
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.TRANSPARENT};
+        boolean[] bold = {true, true, false, false, false, false, false, false, true, true};
+        boolean[] italic = {false, false, true, true, true, true, true, true, false, false};
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theorydataText.indexOf(words[i]);
             int endIndex = startIndex + words[i].length();
 
-            if (startIndex >= 0) { // Перевірка, чи знайдено слово в рядку
+            if (startIndex >= 0) {
                 if (bold[i]) {
                     spannableString.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
