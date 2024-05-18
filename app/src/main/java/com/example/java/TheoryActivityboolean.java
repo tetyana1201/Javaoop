@@ -37,24 +37,25 @@ public class TheoryActivityboolean extends AppCompatActivity {
                 "  • == перевіряє, чи рівні змінні, які були передані." +"\n" +
                 "  • != працює протилежно до рівності.\n" +
                 "  • > перевіряє, чи значення зліва більше за значення справа." + "\n" +
-                "  •  < перевіряє, чи значення справа більше за значення зліва." + "\n" +
-                "Непримітивні:" + "\n" +
-                "Непримітивні типи даних також називають «обʼєктами».\n" +
-                "Змінні з таким типом мають власну поведінку та можуть використовувати методи. Представниками непримітивного типу даних є String, який зберігає рядкові дані (послідовність символів)," +
-                "а також Array (масив), який являє собою структуру даних, що дозволяє зберігати та упорядковувати кілька значень одного типу під однією назвою." + "\n" +
-                "Особливості присвоєння значень змінним\n" +
-                "  • для типу long в кінці значення додай літеру l: long a = 5001;\n" +
-                "  • для типу float в кінці значення додай літеру f : float f = 0.05f;\n" +
-                "  • для типу String обгорни символ або послідовність символів в подвійні лапки \"\": String s = \"А\";";
+                "  • < перевіряє, чи значення справа більше за значення зліва." + "\n" +
+                "Логічні оператори" + "\n" +
+                "Логічні оператори поєднують два (або більше) логічні значення, утворюючи результуюче логічне значення.\n" +
+                "У Java доступні такі логічні оператори: &&, II та !».\n" +
+                "Логічне AND (&&)" + "\n" +
+                "Цей оператор повертає true , коли виконуються обидві умови. Якщо одне з двох тверджень хибне, результат буде дорівнювати false." + "\n" +
+                "Логічне OR (II)" + "\n" +
+                "Цей оператор повертає true , якщо хоча б одна з двох умов істинна. Якщо два твердження хибні, результат буде дорівнювати false."+ "\n" +
+                "Логічне NOT (!)" + "\n" +
+                "Цей унарний оператор змінює результат на протилежний і повертає false, якщо результат істинний (і навпаки).";
 
         SpannableString spannableString = new SpannableString(theorybooleanText);
 
         // Кольори тексту та фону, жирний та курсив
-        String[] words = {"Оператори порівняння", "true", "false", "==", "!=", ">","<"};
-        int[] textColors = {Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW}; //колір фону
-        boolean[] bold = {true, false, false, false, false, false, false}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {false, true, true, true, true, true, true}; // курсив
+        String[] words = {"Оператори порівняння", "true", "false", "==", "!=", ">","<", "Логічні оператори", "AND", "OR", "NOT"};
+        int[] textColors = {Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA, Color.DKGRAY, Color.MAGENTA, Color.MAGENTA, Color.MAGENTA}; //колір тексту
+        int[] bgColors = {Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.YELLOW, Color.TRANSPARENT, Color.YELLOW, Color.YELLOW, Color.YELLOW}; //колір фону
+        boolean[] bold = {true, false, false, false, false, false, false, true, false, false, false}; // жирний TRANSPARENT-прозорий
+        boolean[] italic = {false, true, true, true, true, true, true, false, true, true, true}; // курсив
 
         for (int i = 0; i < words.length; i++) {
             int startIndex = theorybooleanText.indexOf(words[i]);
