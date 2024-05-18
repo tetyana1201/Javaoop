@@ -24,45 +24,42 @@ public class TheoryActivityloops extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
 
         // Встановлюємо текст на Toolbar
-        toolbar.setTitle("Методи");
+        toolbar.setTitle("Цикли");
 
         // Отримуємо посилання на TextView
-        TextView textmethodsView = findViewById(R.id.textmethodsView);
-        displayTheory(textmethodsView);
+        TextView textloopsView = findViewById(R.id.textloopsView);
+        displayTheory(textloopsView);
     }
 
-    private void displayTheory(TextView textmethodsView) {
-        String theorymethodsText = "Методи" + "\n" +
-                "Що таке метод" + "\n" +
-                "Метод - це блок коду, створений для виконання певного завдання або операції. Метод може приймати вхідні\n" +
-                "параметри та повертати якийсь результат. Один метод може виконуватися багато разів із різними вхідними даними." +"\n" +
-                "Базовими прикладами є методи обчислення площі прямокутника або підрахунку відсотків по кредиту: код залишається незмінним, а вхідні дані кожен раз підставляються динамічно." + "\n" +
-                "Використання методів вкрай важливе в програмуванні, адже вони забезпечують повторне використання коду: ти напишеш метод один раз, а використовувати ти можеш\n" +
-                "скільки завгодно разів. Крім того, ти можеш розділити обʼємну задачу на декілька простих, кожну з яких буде виконувати окремий метод." +"\n" +
-                "Тип результату" + "\n" +
-                "Важливо розуміти, що є результатом роботи методу (іншими словами, що твій метод поверне в результаті виконання) — рядок, ціле чи дробове число. Тому при оголошенні методу ми повинні явно вказати, якого типу буде значення, що повертається внаслідок роботи методу.\n" +
-                "Назва методу" + "\n" +
-                "Методів у твоїй програмі може бути багато, тому Java має розуміти, який саме обрати в тому, чи іншому випадку. Для цього використовується назва методу.\n" +
-                "Тіло методу" + "\n" +
-                "Тіло методу - це код, який виконується для здійснення необхідних операцій. Тіло методу розташовано у фігурних дужках { } ." + "\n" +
-                "Виклик методу" + "\n" +
-                "Щоб викликати метод у мові Java, потрібно написати імʼя методу, а потім підставити в дужки вхідні параметри (якщо вони є).\n" +
-                "Не забувай у кінці рядку ставити ; ."+ "\n" +
-                "Ключове слово return y void методах" + "\n" +
-                "Ти можеш використовувати ключове слово return В методах, які не повертають значення. У цьому випадку програма виходить із методу в точці, де викликається return . Після виклику return решта коду методу\n" +
-                "виконана не буде.";
+    private void displayTheory(TextView textloopsView) {
+        String theoryloopsText = "Цикли" + "\n" +
+                "Основне завдання циклів - повторне виконання певних інструкцій." + "\n" +
+                "Загалом, у мові Java є такі види циклів:" +"\n" +
+                "  • for;\n" +
+                "  • while;\n" +
+                "  • do while;\n" +
+                "  • for each.\n" +
+                "Цикл for" +"\n" +
+                "Використання такого циклу є дуже зручним. Якщо потрібно зменшити кількість повторень, ти просто можеш\n" +
+                "змінити умову виконання тіла. Наприклад, при і < 50; ти матимеш удвічі менше повторень." + "\n" +
+                "Цикл while" + "\n" +
+                "Цикл while можна порівняти з оператором if . Спочатку перевіряємо умову. Якщо вона має значення true, то виконується тіло циклу, а якщо false - цикл завершується." + "\n" +
+                "Цикл do while" + "\n" +
+                "Він подібний до циклу while з тією лише різницею, що перевіряє умову після виконання тіла циклу. Цикл починає виконання тіла без перевірки будь-яких умов.\n" +
+                "Іншими словами, тіло циклу завжди виконається принаймні один раз.\n" +
+                "Після виконання тіла умова перевіриться на true бо false . Якщо вона дорівнює true , починається наступна ітерація циклу, якщо false - цикл завершується.";
 
-        SpannableString spannableString = new SpannableString(theorymethodsText);
+        SpannableString spannableString = new SpannableString(theoryloopsText);
 
         // Кольори тексту та фону, жирний та курсив
-        String[] words = {"Методи", "Що таке метод", "Тип результату", "Назва методу", "Тіло методу", "Виклик методу", "Ключове слово return y void методах"};
-        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY}; //колір тексту
-        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
-        boolean[] bold = {true, true, true, true, true, true, true}; // жирний TRANSPARENT-прозорий
-        boolean[] italic = {true, true, true, true, true, true, true}; // курсив
+        String[] words = {"Цикли", "Цикл for", "Цикл while", "Цикл do while"};
+        int[] textColors = {Color.DKGRAY, Color.DKGRAY, Color.DKGRAY, Color.DKGRAY}; //колір тексту
+        int[] bgColors = {Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT, Color.TRANSPARENT}; //колір фону
+        boolean[] bold = {true, true, true, true}; // жирний TRANSPARENT-прозорий
+        boolean[] italic = {true, true, true, true}; // курсив
 
         for (int i = 0; i < words.length; i++) {
-            int startIndex = theorymethodsText.indexOf(words[i]);
+            int startIndex = theoryloopsText.indexOf(words[i]);
             int endIndex = startIndex + words[i].length();
 
             if (startIndex >= 0) { // Перевірка, чи знайдено слово в рядку
@@ -80,7 +77,7 @@ public class TheoryActivityloops extends AppCompatActivity {
             }
         }
 
-        textmethodsView.setText(spannableString);
+        textloopsView.setText(spannableString);
     }
 }
 
