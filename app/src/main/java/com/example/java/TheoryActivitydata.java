@@ -73,7 +73,7 @@ public class TheoryActivitydata extends AppCompatActivity {
                 spannableString.setSpan(new ForegroundColorSpan(textColors[i]), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 spannableString.setSpan(new BackgroundColorSpan(bgColors[i]), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             } else {
-                Log.e("TheoryActivitydata", "Word not found: " + words[i]); // Додайте журнал для відстеження проблеми
+                Log.e("TheoryActivitydata", "Слово не знайдено: " + words[i]);
             }
         }
 

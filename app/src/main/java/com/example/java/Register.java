@@ -41,9 +41,9 @@ public class Register extends AppCompatActivity {
                 final String passwordTxt = password.getText().toString();
                 final String conPasswordTxt = conPassword.getText().toString();
 
-                if(fullnameTxt.isEmpty() || emailTxt.isEmpty() || passwordTxt.isEmpty()) {
+                if (fullnameTxt.isEmpty() || emailTxt.isEmpty() || passwordTxt.isEmpty()) {
                     Toast.makeText(Register.this, "Будь ласка, заповніть усі поля", Toast.LENGTH_SHORT).show();
-                } else if(!passwordTxt.equals(conPasswordTxt)) {
+                } else if (!passwordTxt.equals(conPasswordTxt)) {
                     Toast.makeText(Register.this, "Пароль не збігається", Toast.LENGTH_SHORT).show();
                 } else {
                     mAuth.createUserWithEmailAndPassword(emailTxt, passwordTxt)
@@ -56,7 +56,9 @@ public class Register extends AppCompatActivity {
                                         finish();
                                     } else {
                                         // Виникла помилка при реєстрації користувача
-                                        Toast.makeText(Register.this, "Реєстрація не вдалася: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        String errorMessage = task.getException().getMessage();
+                                        String translatedMessage = translateFirebaseErrorMessage(errorMessage);
+                                        Toast.makeText(Register.this, translatedMessage, Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -70,5 +72,21 @@ public class Register extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private String translateFirebaseErrorMessage(String errorMessage) {
+        if (errorMessage.contains("The email address is badly formatted")) {
+            return "Неправильний формат електронної пошти";
+        } else if (errorMessage.contains("The email address is already in use by another account")) {
+            return "Електронна пошта вже використовується";
+        } else if (errorMessage.contains("The password is invalid or the user does not have a password")) {
+            return "Неправильний пароль або користувач не має пароля";
+        } else if (errorMessage.contains("There is no user record corresponding to this identifier")) {
+            return "Користувача з таким ідентифікатором не існує";
+        } else if (errorMessage.contains("The given password is invalid. [ Password should be at least 6 characters ]")) {
+            return "Вказано неправильний пароль. Пароль має містити не менше 6 символів";
+        } else {
+            return "Реєстрація не вдалася: " + errorMessage;
+        }
     }
 }

@@ -71,7 +71,7 @@ public class TheoryActivityconditional extends AppCompatActivity {
                 spannableString.setSpan(new ForegroundColorSpan(textColors[i]), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 spannableString.setSpan(new BackgroundColorSpan(bgColors[i]), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             } else {
-                Log.e("TheoryActivityconditional", "Word not found: " + words[i]); // Додайте журнал для відстеження проблеми
+                Log.e("TheoryActivityconditional", "Слово не знайдено: " + words[i]);
             }
         }
 
